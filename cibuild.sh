@@ -16,7 +16,6 @@ usage()
 restoreBuildTools(){
     eval "$THIS_SCRIPT_PATH/init-tools.sh"
 }
-
 # home is not defined on CI machines
 setHome()
 {
@@ -30,7 +29,6 @@ setHome()
         mkdir -p $TEMP_DEFAULT
     fi
 }
-
 downloadMSBuildForMono()
 {
     if [ ! -e "$MSBUILD_EXE" ]
@@ -45,7 +43,6 @@ downloadMSBuildForMono()
         rm $MSBUILD_ZIP
     fi
 }
-
 runMSBuildWith()
 {
     local runtimeHost=$1
@@ -143,7 +140,6 @@ MSBUILD_DOWNLOAD_URL="https://github.com/Microsoft/msbuild/releases/download/mon
 MSBUILD_ZIP="$PACKAGES_DIR/msbuild.zip"
 HOME_DEFAULT="$WORKSPACE/msbuild-CI-home"
 TEMP_DEFAULT="$WORKSPACE/tmp"
-
 PROJECT_FILE_ARG='"'"$THIS_SCRIPT_PATH/build.proj"'"'
 BOOTSTRAP_FILE_ARG='"'"$THIS_SCRIPT_PATH/targets/BootStrapMSBuild.proj"'"'
 BOOTSTRAPPED_RUNTIME_HOST='"'"$THIS_SCRIPT_PATH/bin/Bootstrap-NetCore/dotnet"'"'
@@ -182,7 +178,6 @@ do
         BUILD_ONLY=true
         shift 1
         ;;
-
         --bootstrap-only)
         BOOTSTRAP_ONLY=true
         shift 1
